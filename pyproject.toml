@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "chanpy"
+version = "0.1.0"
+description = "A financial trading system for stock screening and quantitative analysis"
+authors = ["Shaun <shaunshen08@outlook.com>"]
+readme = "README.md"
+packages = [{include = "chanpy", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+akshare = "^1.16.46"  # 根据akshare的最新版本调整
+pandas = "^2.2.3"
+numpy = "2.2.3"
+sqlalchemy = "^2.0.39"
+pydantic = "^2.10.6"
+tomli = "^2.2.1"
+click = "^8.1.8"  # 用于CLI
+matplotlib = "^3.10.1"
+tqdm = "^4.67.1"  # 进度条
+loguru = "^0.7.3"  # 日志库
+flask = "^3.1.0"
+flask-cors = "^5.0.1"
+gunicorn = "23.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+black = "^25.1.0"
+mypy = "^1.15.0"
+pylint = "^3.3.5"
+pytest-cov = "^6.0.0"
+jupyter = "^1.1.1"
+
+[tool.poetry.scripts]
+chanpy = "chanpy.main:cli"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"

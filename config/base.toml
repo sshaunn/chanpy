@@ -1,0 +1,21 @@
+[system]
+name = "chanpy"
+version = "0.1.0"
+log_level = "INFO"
+
+[database]
+type = "sqlite"  # 可以是sqlite, mysql, postgresql等
+db_name = "chanpy"
+
+[data_fetcher]
+cache_enabled = true
+cache_path = "./data/cache"
+cache_expiry_hours = 24
+request_timeout = 30
+rate_limit = 10
+default_provider = "akshare"
+
+[strategy]
+default_stock_pool_size = 50
+enable_technical_filters = true
+enable_fundamental_filters = true

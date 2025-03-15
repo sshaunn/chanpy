@@ -1,0 +1,25 @@
+# config/local.toml - 本地开发环境配置
+
+[system]
+env = "local"
+debug = true
+log_level = "DEBUG"
+
+[database]
+type = "sqlite"
+path = "./data/chanpy_local.db"
+echo = true  # 打印SQL语句，用于调试
+
+[data_fetcher]
+cache_enabled = true
+cache_path = "./data/cache"
+cache_expiry_hours = 24
+request_timeout = 30
+rate_limit = 10  # 每分钟请求次数限制
+
+[api]
+host = "127.0.0.1"
+port = 8080
+workers = 5
+enable_cors = true
+cors_origins = ["http://localhost:8200"]  # Vue开发服务器默认端口
